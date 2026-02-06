@@ -24,12 +24,17 @@
     Lenis handles smooth scrolling
 } */
 
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
 body {
     background-color: #000;
     font-family: 'Montserrat', sans-serif;
     color: var(--text-primary);
-    overflow-x: hidden;
-    /* Removed fixed height/overflow hidden to allow scroll */
+    position: relative; /* Ensure overflow hidden context */
 }
 
 /* --- AMBIENT BACKGROUND --- */
@@ -47,10 +52,12 @@ body {
 
 /* --- APP WRAPPER --- */
 .app-wrapper {
+    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
     position: relative;
+    overflow: hidden; /* Prevent child elements from causing scroll */
 }
 
 /* --- PRELOADER --- */
