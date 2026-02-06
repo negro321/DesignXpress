@@ -56,6 +56,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
+    padding-top: 140px; /* Specific override for fixed header spacing */
     position: relative;
     overflow: hidden; /* Prevent child elements from causing scroll */
 }
@@ -86,14 +87,23 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
-    margin-bottom: 40px;
-    position: sticky;
+    padding: 20px 20px; /* Added horizontal padding to match wrapper */
+    margin-bottom: 0; /* Remove margin as it's now fixed */
+    position: fixed; /* Fixed instead of sticky ensures it stays in view */
+    width: 100%; /* Full width for fixed header */
+    max-width: 1400px; /* Match wrapper max-width */
     top: 0;
-    z-index: 200;
-    background: rgba(5, 5, 5, 0.8);
+    left: 50%; /* Center the fixed header */
+    transform: translateX(-50%); /* Center the fixed header */
+    z-index: 300;
+    background: rgba(5, 5, 5, 0.95); /* Slightly more opaque for better readability */
     backdrop-filter: blur(10px);
     border-radius: 0 0 20px 20px;
+}
+
+/* Add padding to wrapper to prevent content hiding behind fixed header */
+.app-wrapper {
+    padding-top: 120px; /* Height of header + gap */
 }
 
 .logo-section {
@@ -197,7 +207,7 @@ header {
     gap: 6px;
     cursor: pointer;
     z-index: 200;
-    position: relative;
+    position: relative; /* Kept relative to header, but header is sticky */
     padding: 10px; /* Improved touch area */
 }
 
