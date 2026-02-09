@@ -557,6 +557,39 @@ header {
     font-size: 1.3rem;
 }
 
+/* --- MANIFIESTO VIDEOS --- */
+.manifiesto-videos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background: #000;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+@media(min-width: 768px) {
+    .manifiesto-videos {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
 /* --- SERVICES GRID --- */
 .services-grid {
     display: grid;
@@ -655,6 +688,68 @@ header {
     list-style: none;
     color: var(--text-secondary);
     line-height: 2;
+}
+
+/* --- STATISTICS SECTION --- */
+.stats-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    max-width: 1200px;
+    margin: 0 auto 100px auto; /* Centered with bottom margin */
+}
+
+@media(min-width: 768px) {
+    .stats-section {
+        flex-direction: row;
+        gap: 80px;
+        padding: 80px 40px;
+    }
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-number-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+/* Color accents for each stat */
+.stat-item:nth-child(1) .stat-number-wrapper { color: var(--cyan); text-shadow: var(--glow-cyan); }
+.stat-item:nth-child(2) .stat-number-wrapper { color: var(--magenta); text-shadow: var(--glow-magenta); }
+.stat-item:nth-child(3) .stat-number-wrapper { color: var(--yellow); text-shadow: var(--glow-yellow); }
+
+.plus-sign {
+    margin-right: 5px;
+    font-size: 0.8em; /* Slightly smaller + */
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
 }
 
 /* --- SHIELD --- */
@@ -787,6 +882,77 @@ header {
 .btn-pkg:hover { background: #fff; color: #000; }
 .glow-btn { background: var(--magenta); border-color: var(--magenta); box-shadow: var(--glow-magenta); }
 .glow-btn:hover { background: #d900d9; color: #fff; }
+
+/* --- TESTIMONIALS SECTION --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: left;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.highlight-testimonial {
+    background: linear-gradient(145deg, rgba(255, 0, 255, 0.05), rgba(5, 5, 5, 0.8));
+    border-color: rgba(255, 0, 255, 0.2);
+}
+
+.stars {
+    color: var(--yellow);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+}
+
+.testimonial-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.client-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.client-name {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.client-role {
+    font-size: 0.9rem;
+    color: var(--cyan);
+}
 
 /* --- FOOTER --- */
 footer {

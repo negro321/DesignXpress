@@ -280,7 +280,8 @@ function init3DTilt() {
     if (!gsapLib) return;
     // Only enable on devices that support hover (mouse)
     if (window.matchMedia("(hover: hover)").matches) {
-        const cards = document.querySelectorAll(".service-card, .pkg-card, .glass-card");
+        // Exclude .full-width cards (like Manifiesto) from tilt effect
+        const cards = document.querySelectorAll(".service-card, .pkg-card, .glass-card:not(.full-width)");
 
         cards.forEach(card => {
             card.addEventListener("mousemove", (e) => {
@@ -332,6 +333,41 @@ function initParallax() {
     });
 }
 
+// Statistics Counter Animation
+function initStatsCounter() {
+    if (!gsapLib || !ScrollTriggerLib) return;
+
+    const statsSection = document.querySelector(".stats-section");
+    if (!statsSection) return;
+
+    const counters = document.querySelectorAll(".stat-counter");
+
+    // Create a ScrollTrigger for the entire section
+    ScrollTriggerLib.create({
+        trigger: statsSection,
+        start: "top 80%", // Start animation when section is visible
+        once: true, // Run only once
+        onEnter: () => {
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute("data-target"));
+                
+                // Animate object property
+                const obj = { value: 0 };
+                
+                gsapLib.to(obj, {
+                    value: target,
+                    duration: 2,
+                    ease: "power2.out",
+                    onUpdate: () => {
+                        // Update DOM content formatted
+                        counter.innerText = Math.floor(obj.value);
+                    }
+                });
+            });
+        }
+    });
+}
+
 // Preloader Logic
 function initPreloader() {
     const preloader = document.getElementById('preloader');
@@ -378,6 +414,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initMagneticButtons();
     init3DTilt();
     initParallax();
+    initStatsCounter();
 });
 
 // Window Load Event (Safety Net)
