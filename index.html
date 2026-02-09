@@ -77,9 +77,14 @@
         <!-- HERO SECTION -->
         <section class="hero-wrapper">
             <!-- Video Background Element -->
-            <video autoplay loop playsinline class="hero-video-bg">
+            <video autoplay muted loop playsinline class="hero-video-bg">
                 <source src="videologo.mp4" type="video/mp4">
             </video>
+            
+            <!-- Sound Toggle Button -->
+            <button id="hero-sound-btn" class="sound-toggle-btn" aria-label="Activar sonido">
+                <i class="fa-solid fa-volume-xmark"></i>
+            </button>
 
             <div class="hero-content">
                 <h1>
@@ -160,13 +165,13 @@
                 <div class="manifiesto-videos">
                     <div class="video-container">
                         <video controls playsinline>
-                            <source src="publi.mp4.mp4" type="video/mp4">
+                            <source src="publi.mp4" type="video/mp4">
                             Tu navegador no soporta el elemento de video.
                         </video>
                     </div>
                     <div class="video-container">
                         <video controls playsinline>
-                            <source src="publi2.mp4.mp4" type="video/mp4">
+                            <source src="publi2.mp4" type="video/mp4">
                             Tu navegador no soporta el elemento de video.
                         </video>
                     </div>
